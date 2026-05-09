@@ -82,7 +82,7 @@ Contributions are welcome from anyone passionate about:
 - AI in Education
 - Educational Technology
 - Simulations
-- Unity Development
+- Physics Education
 ---
 
 ## 📜 License
