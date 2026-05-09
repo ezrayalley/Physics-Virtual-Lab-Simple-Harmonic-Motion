@@ -107,7 +107,7 @@ This virtual laboratory helps learners to:
 
 You can access the WebGL app directly here:
 
-https://your-github-pages-link-here
+https://ezrayalley.github.io/Physics-Virtual-Lab-Simple-Harmonic-Motion/
 
 ---
 
