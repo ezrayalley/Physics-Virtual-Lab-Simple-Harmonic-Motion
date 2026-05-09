@@ -18,52 +18,29 @@ The project transforms abstract physics concepts into immersive visual experienc
 
 ## 🌊 Features
 
-- **Simple Pendulum Simulation** ⏱️  
-  Investigate oscillatory motion and experimentally determine gravitational acceleration using pendulum motion.
+- **Simple Pendulum Simulation** ⏱️ 
 
-- **Interactive Virtual Experimentation** 🧪  
-  Perform experiments virtually by adjusting parameters such as length, amplitude, and timing.
+- **Interactive Virtual Experimentation** 🧪 
 
 - **Graph Plotting & Analysis** 📈  
-  Automatically generate experimental tables and graphs including:
-  - \( T^2 \) vs \( L \)
-  - Gradient calculations
-  - Determination of \( g \)
 
 - **Animated Physics Visualizations** 🎞️  
-  Embedded educational animations and concept explanations powered by Manim and Unity.
 
-- **AI Tutor Interface and Feedback system** 💬  
-  Simulated AI tutor with dynamic typing responses to explain possible experimental errors and improvements.
-  Receive intelligent experimental feedback and guidance based on calculated results and graph analysis.
-
-- **Cross-Platform Deployment** 🌍  
-  Supports:
-  - WebGL
-  - Desktop
-  - Android Phones 
+- **AI Tutor Interface and Feedback system** 💬 
 
 ---
 
 ## 🔧 Technologies Used
 
-- **Unity Engine** 🎮  
-  Core platform used for developing the interactive virtual laboratory.
+- **Unity Engine** 🎮 
 
-- **C#** 💻  
-  Primary programming language for simulation logic, UI interaction, graphing, and AI tutor systems.
+- **C#** 💻 
 
-- **TextMeshPro** ✨  
-  Advanced text rendering for responsive scientific UI.
-
-- **WebGL** 🌐  
-  Browser deployment for easy accessibility without installation.
+- **WebGL** 🌐 
 
 - **Manim** 📊  
-  Mathematical animation engine used for educational SHM visualizations.
 
-- **AI-Based Educational Feedback** 🤖  
-  Intelligent-generated responses simulating adaptive educational assistance.
+- **AI-Based Educational Feedback** 🤖 
 
 ---
 
@@ -89,18 +66,6 @@ This virtual laboratory helps learners to:
 - Develop graph plotting and analysis skills.
 - Interpret experimental errors and uncertainties.
 - Experience physics through interactive visualization.
-
----
-
-## 🚀 Future Improvements
-
-- Helical Spring SHM Simulation
-- Cantilever Oscillation Experiment
-- AI Adaptive Tutoring System
-- Voice-based AI explanations
-- AR/VR Physics Laboratory Integration
-- Real-time performance analytics for learners
-
 ---
 
 ## 🌐 Live Demo
@@ -118,14 +83,6 @@ Contributions are welcome from anyone passionate about:
 - Educational Technology
 - Simulations
 - Unity Development
-
-### How to Contribute:
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a pull request
-
 ---
 
 ## 📜 License
