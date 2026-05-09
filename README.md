@@ -10,8 +10,9 @@ The project transforms abstract physics concepts into immersive visual experienc
 
 ---
 
-![image](<img width="1595" height="913" alt="image" src="https://github.com/user-attachments/assets/7bcc9b83-5f80-48a8-9f90-8fac9e4a8f18" />
-)
+## 📸 Preview
+<img width="1601" height="916" alt="Screenshot 2026-05-09 220244" src="https://github.com/user-attachments/assets/362bb35a-a64d-46d9-9eab-dda8cd7c88f7" />
+
 
 ---
 
