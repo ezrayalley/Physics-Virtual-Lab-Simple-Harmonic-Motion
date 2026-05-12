@@ -1,18 +1,17 @@
-# ⚛️ Physics Virtual Lab – Simple Harmonic Motion 🎓
+# ⚛️ Physics Virtual Lab🎓
 
 ## Overview 🌟
-Welcome to **Physics Virtual Lab – Simple Harmonic Motion**!  
-This AI-enhanced interactive virtual laboratory is designed to help students, educators, and physics enthusiasts explore the fascinating concepts of **Simple Harmonic Motion (SHM)** through realistic simulations, animations, graph plotting, and intelligent experimental feedback.
+Welcome to **Physics Virtual Lab**!  
+This AI-enhanced interactive virtual laboratory is designed to help students, educators, and physics enthusiasts explore the fascinating concepts of **Physics** through realistic simulations, animations, graph plotting, and intelligent experimental feedback.
 
 The project transforms abstract physics concepts into immersive visual experiences, making learning more engaging, interactive, and intuitive.
 
-🚀 **Explore oscillations, analyse experimental data, and visualize the physics behind SHM like never before!**
+🚀 **Explore laboratory experiments, analyse data, and visualize physics concepts  like never before!**
 
 ---
 
 ## 📸 Preview
-<img width="1601" height="916" alt="Screenshot 2026-05-09 220244" src="https://github.com/user-attachments/assets/362bb35a-a64d-46d9-9eab-dda8cd7c88f7" />
-
+<img width="1599" height="907" alt="PVLabimg1" src="https://github.com/user-attachments/assets/3f41333a-4818-47e8-a1f0-c11882b57454" />
 
 ---
 
