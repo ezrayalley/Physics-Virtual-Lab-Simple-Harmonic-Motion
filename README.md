@@ -17,8 +17,6 @@ The project transforms abstract physics concepts into immersive visual experienc
 
 ## 🌊 Features
 
-- **Simple Pendulum Simulation** ⏱️ 
-
 - **Interactive Virtual Experimentation** 🧪 
 
 - **Graph Plotting & Analysis** 📈  
@@ -47,7 +45,7 @@ The project transforms abstract physics concepts into immersive visual experienc
 
 ### WebGL Version 🌐
 1. Open the application in a modern browser.
-2. Select an SHM experiment.
+2. Select an experiment.
 3. Perform measurements and generate results.
 4. Plot graphs and calculate physical quantities.
 5. Click the AI Tutor button to receive intelligent feedback on your experiment.
@@ -58,10 +56,7 @@ The project transforms abstract physics concepts into immersive visual experienc
 
 This virtual laboratory helps learners to:
 
-- Understand the principles of Simple Harmonic Motion.
-- Investigate relationships between:
-  - Length and Period
-  - Oscillation and Restoring Force
+- Understand the practical principles of Physics.
 - Develop graph plotting and analysis skills.
 - Interpret experimental errors and uncertainties.
 - Experience physics through interactive visualization.
@@ -71,7 +66,7 @@ This virtual laboratory helps learners to:
 
 You can access the WebGL app directly here:
 
-https://ezrayalley.github.io/Physics-Virtual-Lab-Simple-Harmonic-Motion/
+https://ezrayalley.github.io/Physics-Virtual-Lab/
 
 ---
 
