@@ -1,14 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
 using System.Text;
 
-public class AITutor : MonoBehaviour
+public class AIFeedback : MonoBehaviour
 {
     [Header("UI")]
-    public TMP_InputField questionInput;
     public TMP_Text responseText;
+
+    [Header("Experiment Data")]
+    public float gValue;
 
     [Header("Typing Settings")]
     public float typingSpeed = 0.03f;
@@ -23,47 +25,45 @@ public class AITutor : MonoBehaviour
     private bool isRequestRunning = false;
     private string aiResponseText = "";
 
-    //=====================================================
-    // BUTTON FUNCTION
-    //=====================================================
-    public void AskQuestion()
+    // =====================================================
+    // BUTTON
+    // =====================================================
+    public void GetFeedback()
     {
         if (isRequestRunning)
             return;
 
-        if (string.IsNullOrWhiteSpace(questionInput.text))
-        {
-            responseText.text = "Please enter a question.";
-            return;
-        }
-
         StopAllCoroutines();
-        StartCoroutine(GenerateAnswer());
+        StartCoroutine(GenerateFeedback());
     }
 
-    //=====================================================
-    // GENERATE ANSWER
-    //=====================================================
-    IEnumerator GenerateAnswer()
+    // =====================================================
+    // MAIN FEEDBACK
+    // =====================================================
+    IEnumerator GenerateFeedback()
     {
         isRequestRunning = true;
 
         responseText.text = "Thinking...";
 
         string prompt =
-$@"You are an AI Physics Tutor for a Virtual Physics Lab designed for simple harmonic motion.
+$@"You are an AI Physics Tutor.
 
-Answer the student's question on simple harmonic motion clearly and accurately. if Question is not a physics question, briefly advise student to ask a physics questions specifically simple harmonic motion instead.
+A student has performed a VIRTUAL SIMULATION experiment involving a simple pendulum where values for length and number of oscillations inputted,pendulum bob is displaced and time recorded.
 
-Student Question:
-{questionInput.text}
+The value of gravitational acceleration obtained from the simulation is:
 
-Requirements:
-- Use simple language.
-- Explain step-by-step.
-- Include formulas if necessary.
-- Keep the answer concise in about 8 lines.
-- Avoid markdown symbols.";
+g = {gValue:F2} m/s²
+
+The accepted value is 9.81 m/s².
+
+Provide feedback on:
+1. The accuracy of the result.
+2. Possible reasons for differences from the accepted value considering angle of displacement, length and number of oscillations.
+3. Suggestions for improving the experiment.
+
+Keep the explanation concise, friendly and suitable for undergraduate students.
+Response should not exceed 8 lines. Avoid markdown symbols.";
 
         yield return StartCoroutine(SendGeminiRequest(prompt));
 
@@ -73,16 +73,16 @@ Requirements:
         }
         else
         {
-            yield return StartCoroutine(TypeText(
-                "Unable to contact the AI tutor. Please check your internet connection and try again."));
+            string fallback = GetFallbackResponse();
+            yield return StartCoroutine(TypeText(fallback));
         }
 
         isRequestRunning = false;
     }
 
-    //=====================================================
+    // =====================================================
     // GEMINI REQUEST
-    //=====================================================
+    // =====================================================
     IEnumerator SendGeminiRequest(string prompt)
     {
         aiResponseText = "";
@@ -118,8 +118,6 @@ Requirements:
 
             request.SetRequestHeader("Content-Type", "application/json");
 
-            request.timeout = 15;
-
             yield return request.SendWebRequest();
 
             if (request.result == UnityWebRequest.Result.Success)
@@ -145,9 +143,9 @@ Requirements:
         }
     }
 
-    //=====================================================
-    // PARSE RESPONSE
-    //=====================================================
+    // =====================================================
+    // RESPONSE PARSER
+    // =====================================================
     string ParseGeminiResponse(string json)
     {
         try
@@ -158,9 +156,6 @@ Requirements:
             if (response != null &&
                 response.candidates != null &&
                 response.candidates.Length > 0 &&
-                response.candidates[0] != null &&
-                response.candidates[0].content != null &&
-                response.candidates[0].content.parts != null &&
                 response.candidates[0].content.parts.Length > 0)
             {
                 Debug.Log("Candidate found!");
@@ -176,9 +171,37 @@ Requirements:
         return "";
     }
 
-    //=====================================================
+    // =====================================================
+    // FALLBACK SYSTEM
+    // =====================================================
+    string GetFallbackResponse()
+    {
+        if (float.IsNaN(gValue) || float.IsInfinity(gValue))
+        {
+            return "The calculated value of g is invalid. Please verify the graph and repeat the simulation.";
+        }
+
+        if (gValue > 12f)
+        {
+            return $"Your calculated value of g = {gValue:F2} m/s² is considerably higher than the accepted value. This may be due to large dispacement angles, wrong timings or parameter settings. Check for consistent values of length and ensure a fixed number of oscillations is used thorughout the experiment.";
+        }
+
+        if (gValue > 11f)
+        {
+            return $"The value of g obtained ({gValue:F2} m/s²) is above the expected range. Excessive oscillation amplitude or inconsistent simulation settings may have affected the result. Consider checking the length and time whiles ensuring that the pendulum oscillate with small angle.";
+        }
+
+        if (gValue < 8.5f)
+        {
+            return $"The value of g obtained ({gValue:F2} m/s²) is below the expected range. Errors in displacement, timing or parameter selection may have influenced the result.Repeating the experiment with more controlled oscillations may improve accuracy";
+        }
+
+        return $"Your calculated value of g = {gValue:F2} m/s² is close to the accepted value of 9.81 m/s², indicating careful timing and reliable experimental accuracy.";
+    }
+
+    // =====================================================
     // TYPEWRITER EFFECT
-    //=====================================================
+    // =====================================================
     IEnumerator TypeText(string text)
     {
         responseText.text = "";
@@ -190,9 +213,10 @@ Requirements:
         }
     }
 
-    //=====================================================
+    // =====================================================
     // JSON CLASSES
-    //=====================================================
+    // =====================================================
+
     [System.Serializable]
     public class GeminiRequest
     {

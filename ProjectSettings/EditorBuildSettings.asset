@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Concepts.unity
     guid: e2b7e3472f0361447b9ed2196de30522
+  - enabled: 1
+    path: Assets/Scenes/Helical Spring.unity
+    guid: 9c929585631bd3f4a8843ba8e7795ab5
+  - enabled: 1
+    path: Assets/Scenes/Cantilever.unity
+    guid: eba8d2703144bc84985f4443aee9690b
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 7904fba3cc0d73346b47f23aa112b74a,
       type: 2}

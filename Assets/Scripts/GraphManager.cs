@@ -6,7 +6,7 @@ public class GraphManager : MonoBehaviour
     public Transform graphContainer;
     public GameObject pointPrefab;
     public TMP_Text resultText;
-    public AITutor aiTutor;
+    public AIFeedback aiFeedback;
 
     public float width = 600f;
     public float height = 300f;
@@ -65,7 +65,7 @@ public class GraphManager : MonoBehaviour
         // 🔹 Calculate g
         float g = (4 * Mathf.PI * Mathf.PI) / slope;
 
-        aiTutor.gValue = g;
+        aiFeedback.gValue = g;
 
         resultText.text = "g = " + g.ToString("F2");
 

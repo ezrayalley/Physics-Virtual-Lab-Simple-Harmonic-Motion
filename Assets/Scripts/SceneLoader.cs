@@ -32,4 +32,12 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Concepts");
     }
+    public void LoadHelicalSpring()
+    {
+        SceneManager.LoadScene("Helical Spring");
+    }
+    public void LoadCantilever()
+    {
+        SceneManager.LoadScene("Cantilever");
+    }
 }
